@@ -1,0 +1,16 @@
+
+<div class = "header">
+<%= render partial: 'layouts/header' %>
+<%= render 'search' %>
+</div>
+<br><br><br><br><br>
+ <h1 align = "center"> GUEST LIST </h1>
+<br>
+<%= render 'table' %>
+ <h6 align = "center"><div class = "button2">  <%= link_to 'Add New Guest', new_post_path %>| <%= link_to 'Refresh', posts_path %></div></h6>
+<%= render partial: 'layouts/g' %>
+<h1><br><br><br><br><br><br><br></h1>
+ <div class = "footer">
+<%= render partial: 'layouts/footer' %>
+</div>
+<%= render partial: 'layouts/script' %>

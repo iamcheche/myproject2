@@ -1,0 +1,35 @@
+    
+    <div class = "gb"><%= image_tag "gb.png", :width => "150", :height => "50" %>
+    </div>
+
+    <div class = "welcome">
+    <p ><h3>Welcome Admin!</p></h3>
+    </div>
+        <ul id="menu">
+        <li><%= link_to 'Home', home_index_path %></p></li>
+        <li><a href = "#">Guest List</a>
+            <ul>
+            <li><%= link_to "View Guests", posts_path %></li>
+            <li><%= link_to "Add New Guest", new_post_path %></li>
+             </ul>
+            </li>
+             <li><a href = "#">Products</a>
+            <ul>
+            <li><%= link_to "View Products", products_path %></li>
+            <li><%= link_to "Add New Products", new_product_path %></li>
+             </ul>
+            </li>
+        <li><a href="#">Search</a>
+        <ul>
+            <li><%= link_to "Search Guests", posts_path %></li>
+            <li><%= link_to "Search Products", products_path %></li>
+             </ul></li>
+</ul>
+
+
+
+
+
+</div>
+
+

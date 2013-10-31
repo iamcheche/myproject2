@@ -1,0 +1,117 @@
+<!DOCTYPE>
+<html>
+<head>
+ <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
+<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+
+<script type = "text/javascript">
+  $(function() {
+
+  alert ('Plugins are now loaded... ')
+    $("#new_post").validate({
+    
+        rules: {
+          "post[fname]" : {required: true,
+                    minlength:2
+            },
+            "post[lname]": {required: true,
+                    minlength:2
+            },
+			      "post[address]": {required: true,
+                     minlength: 10
+            },
+            "post[email]": {
+                required: true,
+                email: true
+            },
+			      "post[contact_no]": {
+                required: true,
+                maxlength: 11,
+                minlength: 7,
+                number: true
+            },
+        },                                                                                messages: {
+            "post[fname]": {required: "<br>Please enter your first name",
+                         minlength: "<br>Please enter at least <br>2 letters for your first name."
+        },
+        "post[address]": {required: "<br>Please enter address",
+                         minlength: "<br>Please enter at least 10 <br>characters for your address."
+        },
+            "post[lname]": {required: "<br>Please enter your last name",
+                       minlength: "<br>Please enter at least <br>2 letters for your last name."
+        },
+        "post[contact_no]": {
+                required: "<br>Please provide a contact number.",
+                minlength: "<br>Your contact number must be<br> at least 7 characters long",
+                maxlength: "<br>Your contact number must be<br> can only be 11 characters",
+                number: "<br>numbers only."
+            },
+        "post[email]": "<br>Please enter a valid email address",
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+  
+  </script>
+</head>
+<body>
+
+<h1><br><br><br><br></h1>
+    <fieldset>
+      <legend><h3>Add New Guest</h3></legend>
+  <%= form_for(@post)  do |f| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <b>
+  <div class="field" align = "center">
+    <%= f.label :First_Name %>:<br>
+    <%= f.text_field :fname, placeholder: "enter first name here.", :class => "fname", :id => "fname" %>
+
+  </div>
+
+  <div class="field"align = "center">
+    <%= f.label :Last_Name %>:<br>
+    <%= f.text_field :lname, placeholder: "enter last name here.", :class => "lname", :id => "lname" %>
+  </div>
+
+  <div class="field" align = "center">
+    <b><%= f.label :Home_Address %>:</b><br />
+    <%= f.text_area :address, "rows" => 3, "cols" => 23, placeholder: "enter address here.", :class => "address", :id => "address" %>
+  </div>
+
+  <div class="field" align = "center">
+    <label for="email"><%= f.label :Email_Address %>:</label><br>
+    <%= f.text_field :email, placeholder: "i.e. user@email.com", :class => 
+    "email", :id => "email" %>
+   </div>
+
+  <div class="field" align = "center">
+    <%= f.label :Contact_Number %>:<br>
+    <%= f.text_field :contact_no, placeholder: "i.e. 09xxxxxxxxx", :class => "contact_no", :id => "contact" %>
+  </div>
+<br>
+  <div class="actions" align = "center">
+    <%= f.submit %> | <%= link_to 'Back', posts_path %>
+  </div>
+  <% end %>
+</fieldset>
+<br><br><br><br><br>  
+  </body>
+  </html>

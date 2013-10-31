@@ -1,0 +1,25 @@
+
+<table align = "center" cellpadding = "8" frame = "box">
+  <tr>
+    <th>First name: </th>
+    <th>Last name: </th>
+    <th>Address: </th>
+    <th>Email: </th>
+    <th>Contact Number: </th>
+    <th colspan = "3">Manage:</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+  
+    <td style = "background-color: #"><%= post.fname %></td>
+    <td><%= post.lname %></td>
+    <td><%= post.address %></td>
+    <td><%= post.email %></td>
+    <td><%= post.contact_no %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure you want to delete this record?' } %></td>
+  </tr>
+<% end %>
+</table>

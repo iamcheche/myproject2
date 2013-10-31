@@ -1,0 +1,15 @@
+<div class = "header">
+<%= render partial: 'layouts/header' %>
+<%= render 'search' %>
+</div>
+br><br><br><br><br>
+ <h1 align = "center"> PRODUCT LIST </h1>
+<br>
+<%= render 'table' %>
+ <h6 align = "center"><div class = "button2">  <%= link_to 'Add New Product', new_product_path %>| <%= link_to 'Refresh', products_path %></div></h6>
+<%= render partial: 'layouts/g' %>
+<h1><br><br><br><br><br><br><br></h1>
+ <div class = "footer">
+<%= render partial: 'layouts/footer' %>
+</div>
+<%= render partial: 'layouts/script' %>
